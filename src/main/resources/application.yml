@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: licensingservice
+  profiles:
+    active: default
+  config:
+    import: configserver:http://localhost:8888
