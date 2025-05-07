@@ -1,20 +1,19 @@
 package com.example.licensing_service.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.With;
 import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name = "licenses")
 @Data
-@AllArgsConstructor
 @Component
 @With
+@NoArgsConstructor
+@AllArgsConstructor
 public class License{
     @Id
     @Column(name = "license_id", nullable = false)
@@ -22,6 +21,18 @@ public class License{
 
     @Column(name = "organization_id", nullable = false)
     private String organizationId;
+
+    @Transient
+    private String organizationName ="";
+
+    @Transient
+    private String contactName ="";
+
+    @Transient
+    private String contactPhone ="";
+
+    @Transient
+    private String contactEmail ="";
 
     @Column(name = "product_name", nullable = false)
     private String productName;
